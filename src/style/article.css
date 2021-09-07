@@ -1,0 +1,27 @@
+.rootArticle{
+    padding: 50px; 
+    border: 1px black solid;
+    border-radius: 18px;
+    box-shadow: 1px 1px 2px rgb(83, 83, 83);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 20px;
+}
+.image{ 
+    background-color: chocolate;
+    height: 200px;
+    width: 200px;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    
+}
+.titleArt{
+    grid-column-start: 2;
+}
+.firstLineArt{
+    grid-column-start: 2;
+}
+.suiteArt{
+    grid-column-start: 2;
+}

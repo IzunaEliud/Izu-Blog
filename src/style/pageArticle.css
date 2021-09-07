@@ -1,0 +1,9 @@
+.rootPA > div{
+    float: left;
+    color: blue;
+    background-color: red;
+}
+
+.rootPA{
+    margin: 10px auto 0;
+}
