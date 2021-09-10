@@ -1,6 +1,8 @@
 .root{
     margin-top: 0;
     padding: 10px;
+    color: cornsilk;
+    background-color: black;
     border: 1px black solid;
 }
 .title{

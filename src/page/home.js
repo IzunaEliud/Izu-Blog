@@ -1,13 +1,16 @@
 import Article from "../components/article"
 import NavBar from "../components/navBar"
 import nba from "../article/article"
+import ArticleAll from "../components/articleAll"
 import Footer from "../components/footer"
 import Pagination from '@material-ui/lab/Pagination'
+import NewArticle from "../components/newArticle"
 import { useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
+import { BrowserRouter as Router,Route } from 'react-router-dom'
 const useStyle=makeStyles((theme)=>({
     root:{
-        margin: "50px 15% 0 15%",
+        margin: "50px 25% 0 25%",
         display: "grid",
         gridTemplateColumns: "1fr",
         gridColumnGap: "20px",
@@ -26,17 +29,33 @@ export default function Home(){
     }
     const classes=useStyle()
     return(
-        <div>
+        <Router>
             <NavBar/>
-            <div className={classes.root}>
-                {curentPost.map((e)=>{
-                    return(<Article number={e}/>)
-                })} 
-                <p>Page {page}</p>
+            <Route exact path="/">
+                <div className={classes.root}>
+                    {curentPost.map((e)=>{
+                        return(<Article number={e}/>)
+                    })} 
+                    <p>Page {page}</p>
 
-                <Pagination count={nbPage} color="primary" page={page} onChange={changePage}/>
-            </div>
+                    <Pagination count={nbPage} color="primary" page={page} onChange={changePage}/>
+                </div>
+            </Route>
+            {nba.map((e,v)=>{
+                return(
+                    <Route exact path={`/article/${v}`}>
+                        <ArticleAll nb={v}/>
+                    </Route>
+                )
+            })}
+            <Route>
+                <div>
+                    <Route exact path={`/newarticle`}>
+                        <NewArticle/>
+                    </Route>
+                </div>
+            </Route>
             <Footer/>    
-        </div>
+        </Router>
     )
 }
